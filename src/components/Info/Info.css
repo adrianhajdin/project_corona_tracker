@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  margin: 0 3%;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 200px;
+}
+
+.confirmed {
+  background-color: rgba(0, 0, 255, 0.5);
+}
+
+.recovered {
+  background-color: rgba(0, 255, 0, 0.5);
+}
+
+.deaths {
+  background-color: rgba(255, 0, 0, 0.5);
+}
