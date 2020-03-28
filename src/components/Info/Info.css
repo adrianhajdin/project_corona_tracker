@@ -3,13 +3,8 @@
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  padding: 5%;
   margin: 0 3%;
-  border-radius: 25px;
-  justify-content: center;
-  align-items: center;
+
 }
 
 img {

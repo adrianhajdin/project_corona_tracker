@@ -20,7 +20,6 @@ const Chart = () => {
     <div>
       {data[0] ? <Line 
         data={{
-          // days
           labels: data.map(({date}) => date),
           datasets: [{ 
               data: data.map(({confirmed}) => confirmed),
@@ -29,7 +28,7 @@ const Chart = () => {
               fill: true
             }, { 
               data: data.map(({deaths}) => deaths),
-              label: "Recovered",
+              label: "Deaths",
               borderColor: "red",
               backgroundColor: "#ff9999",
               fill: true
