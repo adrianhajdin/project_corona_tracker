@@ -4,8 +4,8 @@ import './App.css';
 import { Container, Typography } from '@material-ui/core';
 
 import Info from './components/Info/Info';
-import Chart from './components/Chart/Chart';
 import Countries from './components/Countries/Countries';
+import Chart from './components/Chart/Chart';
 
 import fetchData from './api/fetchData';
 
@@ -20,15 +20,21 @@ class App extends React.Component {
     this.setState({ data: fetchedData });
   }
 
+  handleCountryChange = async (country) => {
+    const fetchedData = await fetchData(country);
+
+    this.setState({ data: fetchedData });
+  }
+
   render() {
     const { data } = this.state;
 
     return (
       <Container>
         <Typography variant="h1" className="heading">Corona Statistics</Typography>
+        <Countries handleCountryChange={this.handleCountryChange} f/>
         <Info data={data} />
-        <Chart />
-        {/* <Countries /> */}
+        <Chart data={data} />
       </Container>
     );
   }

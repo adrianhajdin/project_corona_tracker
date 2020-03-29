@@ -1,42 +1,67 @@
 import React, { useState, useEffect } from 'react'
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 
 import fetchDaily from '../../api/fetchDaily';
 
-const Chart = () => {
-  const [data, setData] = useState({});
+const Chart = ({ data }) => {
+  const [dailyData, setDailyData] = useState({});
+
   useEffect(() => {
     async function fetchMyAPI() {
-      const data = await fetchDaily();
+      const dailyData = await fetchDaily();
 
-      console.log(data);
-      setData(data)
-    }  
-  
+      setDailyData(dailyData)
+    }
+
     fetchMyAPI();
   }, []);
-  
+
+  const barChart = (
+     data.confirmed ? <Bar
+      data={{
+        labels: ["Infected", "Recovered", "Deaths"],
+        datasets: [
+          {
+            label: "People",
+            backgroundColor: ["blue", "green", "red"],
+            data: [657, 45, 5]
+          }
+        ]
+      }}
+      options={{
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Current state in Croatia'
+        }
+      }}
+    /> : null
+  )
+
+  const lineChart = (
+    dailyData[0] && !data.confirmed ? <Line data={{
+      labels: dailyData.map(({ date }) => date),
+      datasets: [{
+        data: dailyData.map(({ confirmed }) => confirmed),
+        label: "Infected",
+        borderColor: "#3333ff",
+        fill: true
+      }, {
+        data: dailyData.map(({ deaths }) => deaths),
+        label: "Deaths",
+        borderColor: "red",
+        backgroundColor: "#ff9999",
+        fill: true
+      }
+      ]
+    }}
+    />: null
+  )
+
   return (
     <div>
-      {data[0] ? <Line 
-        data={{
-          labels: data.map(({date}) => date),
-          datasets: [{ 
-              data: data.map(({confirmed}) => confirmed),
-              label: "Infected",
-              borderColor: "#3333ff",
-              fill: true
-            }, { 
-              data: data.map(({deaths}) => deaths),
-              label: "Deaths",
-              borderColor: "red",
-              backgroundColor: "#ff9999",
-              fill: true
-            }
-          ]
-        }} 
-      />: null}
-    
+      {lineChart}
+      {barChart}
     </div>
   )
 }

@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
+import { NativeSelect, FormControl, } from '@material-ui/core';
 
+import { countries } from '../../api/fetchCountries';
 
-
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-
-
-import { countries, fetchCountry } from '../../api/fetchCountries';
-
-const Countries = () => {
+const Countries = ({ handleCountryChange }) => {
   const [fetchedCountries, setCountries] = useState([]);
-  const [country, setCountry] = useState('');
+  const [country, setCountry] = useState();
 
   useEffect(() => {
     async function fetchMyAPI() {
@@ -21,15 +16,17 @@ const Countries = () => {
     fetchMyAPI();
   }, [setCountries]);
 
+  useEffect(() => {
+    handleCountryChange(country);
+  }, [country, handleCountryChange]);
+
   return (
-    <div>
-      <Select onChange={(e) => setCountry(e.target.value)}>
-        {fetchedCountries.map(({name}) => {
-          return <MenuItem value={name}>{name}</MenuItem>
-        })}
-      </Select>
-      <h1>{country}</h1>
-    </div>
+    <FormControl style={{width: '10%'}}>
+      <NativeSelect defaultValue="" onChange={(e) => setCountry(e.target.value)}>
+        <option value="">Global</option>
+        {fetchedCountries.map(({name}) => <option value={name}>{name}</option>)}
+      </NativeSelect>
+    </FormControl>
   )
 }
 
