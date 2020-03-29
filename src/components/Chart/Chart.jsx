@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Line, Bar } from 'react-chartjs-2';
 
+import { Container } from '@material-ui/core';
+
+import './Chart.css'
+
+
 import fetchDaily from '../../api/fetchDaily';
 
-const Chart = ({ data }) => {
+const Chart = ({ data, country }) => {
   const [dailyData, setDailyData] = useState({});
 
   useEffect(() => {
@@ -23,8 +28,8 @@ const Chart = ({ data }) => {
         datasets: [
           {
             label: "People",
-            backgroundColor: ["blue", "green", "red"],
-            data: [657, 45, 5]
+            backgroundColor: ["rgb(0,0,205)", "rgb(0,205, 0)", "rgb(205,0, 0)"],
+            data: [data.confirmed, data.recovered, data.deaths]
           }
         ]
       }}
@@ -32,14 +37,14 @@ const Chart = ({ data }) => {
         legend: { display: false },
         title: {
           display: true,
-          text: 'Current state in Croatia'
+          text: `Current state in ${country}`
         }
       }}
     /> : null
   )
 
   const lineChart = (
-    dailyData[0] && !data.confirmed ? <Line data={{
+    dailyData[0] ? <Line data={{
       labels: dailyData.map(({ date }) => date),
       datasets: [{
         data: dailyData.map(({ confirmed }) => confirmed),
@@ -59,9 +64,8 @@ const Chart = ({ data }) => {
   )
 
   return (
-    <div>
-      {lineChart}
-      {barChart}
+    <div className="chart-container">
+      {country ? barChart : lineChart}
     </div>
   )
 }

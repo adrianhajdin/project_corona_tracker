@@ -12,6 +12,7 @@
     "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-chartjs-2": "^2.9.0",
+    "react-device-detect": "^1.11.14",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },

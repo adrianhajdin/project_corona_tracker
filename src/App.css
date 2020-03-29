@@ -1,9 +1,19 @@
 .heading {
-  margin-top: 20px !important;
-  margin-bottom: 40px !important;
   text-align: center;
+  margin-top: 20px !important;
 }
 
 body {
   background-color: rgb(250, 250,250)
+}
+
+.intro-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
 }
