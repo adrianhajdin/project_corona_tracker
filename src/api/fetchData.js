@@ -3,6 +3,8 @@ import axios from 'axios';
 const fetchData = (country) => {
   let url = 'https://covid19.mathdro.id/api'; 
 
+  console.log(country);
+
   if(country) {
     url = `${url}/countries/${country}`;
   }

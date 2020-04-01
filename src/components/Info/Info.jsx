@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { Card, CardActions, CardContent, Button, Typography, Grid } from '@material-ui/core';
+import CountUp from 'react-countup';
+
 
 import './Info.css';
 
@@ -14,13 +16,18 @@ const Info = ({ data }) => {
   return (
     <div className="container">
       <Grid container spacing={3} justify="center">
-        <Grid item xs={12} md={3} component={Card} className="card">
+        <Grid item xs={12} md={3} component={Card} className="card infected">
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
                 Infected
               </Typography>
               <Typography variant="h5" component="h2">
-                {data.confirmed.toLocaleString()}
+              <CountUp 
+                start={0}
+                end={data.confirmed}
+                duration={2.75}
+                separator=","
+              />
               </Typography>
               <Typography color="textSecondary">
                 {new Date(data.lastUpdate).toDateString()}
@@ -31,13 +38,18 @@ const Info = ({ data }) => {
             </CardContent>
             
         </Grid>
-        <Grid item xs={12} md={3} component={Card} className="card">
+        <Grid item xs={12} md={3} component={Card} className="card recovered">
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
                 Recovered
         </Typography>
               <Typography variant="h5" component="h2">
-                {data.recovered.toLocaleString()}
+              <CountUp 
+                start={0}
+                end={data.recovered}
+                duration={2.75}
+                separator=","
+              />
               </Typography>
               <Typography color="textSecondary">
                 {new Date(data.lastUpdate).toDateString()}
@@ -48,13 +60,18 @@ const Info = ({ data }) => {
             </CardContent>
             
         </Grid>
-        <Grid item xs={12} md={3} component={Card} className="card">
+        <Grid item xs={12} md={3} component={Card} className="card deaths">
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
                 Deaths
         </Typography>
               <Typography variant="h5" component="h2">
-                {data.deaths.toLocaleString()}
+              <CountUp 
+                start={0}
+                end={data.deaths}
+                duration={2.75}
+                separator=","
+              />
               </Typography>
               <Typography color="textSecondary">
                 {new Date(data.lastUpdate).toDateString()}

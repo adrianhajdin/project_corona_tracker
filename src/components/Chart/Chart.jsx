@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Line, Bar } from 'react-chartjs-2';
 
-import { Container } from '@material-ui/core';
-
 import './Chart.css'
-
 
 import fetchDaily from '../../api/fetchDaily';
 
@@ -12,7 +9,7 @@ const Chart = ({ data, country }) => {
   const [dailyData, setDailyData] = useState({});
 
   useEffect(() => {
-    async function fetchMyAPI() {
+    const fetchMyAPI = async () => {
       const dailyData = await fetchDaily();
 
       setDailyData(dailyData)
@@ -28,18 +25,15 @@ const Chart = ({ data, country }) => {
         datasets: [
           {
             label: "People",
-            backgroundColor: ["rgb(0,0,205)", "rgb(0,205, 0)", "rgb(205,0, 0)"],
+            backgroundColor: ["rgba(0, 0, 255, 0.5)", "rgba(0, 255, 0, 0.5)", "rgba(255, 0, 0, 0.5)"],
             data: [data.confirmed, data.recovered, data.deaths]
           }
         ]
       }}
       options={{
         legend: { display: false },
-        title: {
-          display: true,
-          text: `Current state in ${country}`
-        }
-      }}
+      title: { display: true, text: `Current state in ${country}` },
+    }}
     /> : null
   )
 
@@ -55,7 +49,7 @@ const Chart = ({ data, country }) => {
         data: dailyData.map(({ deaths }) => deaths),
         label: "Deaths",
         borderColor: "red",
-        backgroundColor: "#ff9999",
+        backgroundColor: "rgba(255, 0, 0, 0.5)",
         fill: true
       }
       ]

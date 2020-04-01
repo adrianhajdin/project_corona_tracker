@@ -13,16 +13,16 @@ img {
   width: 200px;
 }
 
-.confirmed {
-  background-color: rgba(0, 0, 255, 0.5);
+.infected {
+  border-bottom: 10px solid rgba(0, 0, 255, 0.5);
 }
 
 .recovered {
-  background-color: rgba(0, 255, 0, 0.5);
+  border-bottom: 10px solid rgba(0, 255, 0, 0.5);
 }
 
 .deaths {
-  background-color: rgba(255, 0, 0, 0.5);
+  border-bottom: 10px solid rgba(255, 0, 0, 0.5);
 }
 
 @media only screen and (max-width: 820px) {

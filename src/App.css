@@ -3,8 +3,22 @@
   margin-top: 20px !important;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.image-covid {
+  width: 370px;
+}
+
 body {
-  background-color: rgb(250, 250,250)
+  background-color: rgb(250, 250,250);
 }
 
 .intro-container {
