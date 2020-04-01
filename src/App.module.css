@@ -1,0 +1,18 @@
+body {
+  background-color: rgb(250, 250,250);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.image {
+  width: 370px;
+}
+

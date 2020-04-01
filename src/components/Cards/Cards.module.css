@@ -5,28 +5,17 @@
   margin: 50px 0;
 }
 
-.card {
-  margin: 0 2% !important; 
-}
-
-img {
-  width: 200px;
-}
-
 .infected {
   border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+  margin: 0 2% !important;
 }
 
-.recovered {
+.recovered{
   border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+  margin: 0 2% !important;
 }
 
-.deaths {
+.deaths{
   border-bottom: 10px solid rgba(255, 0, 0, 0.5);
-}
-
-@media only screen and (max-width: 820px) {
-  .card {
-    margin-top: 25px !important;
-  }
+  margin: 0 2% !important;
 }

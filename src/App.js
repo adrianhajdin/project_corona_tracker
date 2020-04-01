@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Typography } from '@material-ui/core';
 
-import './App.css';
+import styles from './App.module.css';
 import CoronaLogo from './images/image.png';
 
-import { Info, Countries, Chart } from './components';
-import fetchData from './api/fetchData';
+import { Cards, CountryPicker, Chart } from './components';
+import { fetchData } from './api/';
 
 class App extends React.Component {
   state = {
@@ -30,13 +30,15 @@ class App extends React.Component {
     const { data, country } = this.state;
 
     return (
-      <div className="container">
-        <span className="link" onClick={() => this.handleCountryChange('')}><img className="image-covid" src={CoronaLogo} alt="logo" /></span>
-        <div className="intro-container">
-          <Info data={data} />
-          <Countries handleCountryChange={this.handleCountryChange} />
-        </div>
-        { window.innerWidth > 500 ? <Chart data={data} country={country} /> : <Typography align="center" variant="h5">Rotate your device and reload the page to see the chart</Typography>}
+      <div className={styles.container}>
+        <span className={styles.link} onClick={() => this.handleCountryChange('')}><img className={styles.image} src={CoronaLogo} alt="logo" /></span>
+        <Cards data={data} />
+        <CountryPicker country={country} handleCountryChange={this.handleCountryChange} />
+        { 
+          window.innerWidth > 500 
+            ? <Chart data={data} country={country} /> 
+            : <Typography align="center" variant="h5">Rotate your device and reload the page to see the chart</Typography>
+        }
       </div>
     );
   }
