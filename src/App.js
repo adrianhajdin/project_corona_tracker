@@ -1,14 +1,11 @@
 import React from 'react';
 
-import './App.css';
 import { Typography } from '@material-ui/core';
 
+import './App.css';
 import CoronaLogo from './images/image.png';
 
-import Info from './components/Info/Info';
-import Countries from './components/Countries/Countries';
-import Chart from './components/Chart/Chart';
-
+import { Info, Countries, Chart } from './components';
 import fetchData from './api/fetchData';
 
 class App extends React.Component {
