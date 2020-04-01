@@ -8,11 +8,17 @@ body {
   flex-direction: column;
 }
 
-.link {
-  cursor: pointer;
-}
-
 .image {
   width: 370px;
+  margin-top: 50px;
 }
 
+@media only screen and (max-width: 770px) {
+  .container {
+    margin: 0 10%;
+  }
+
+  .image {
+    width: 100%;
+  }
+}

@@ -3,16 +3,16 @@ import { Line, Bar } from 'react-chartjs-2';
 
 import styles from './Chart.module.css';
 
-import { fetchDaily } from '../../api';
+import { fetchDailyData } from '../../api';
 
 const Chart = ({ data, country }) => {
   const [dailyData, setDailyData] = useState({});
 
   useEffect(() => {
     const fetchMyAPI = async () => {
-      const dailyData = await fetchDaily();
+      const initialDailyData = await fetchDailyData();
 
-      setDailyData(dailyData);
+      setDailyData(initialDailyData);
     };
 
     fetchMyAPI();

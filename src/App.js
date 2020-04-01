@@ -1,12 +1,9 @@
 import React from 'react';
 
-import { Typography } from '@material-ui/core';
-
-import styles from './App.module.css';
-import CoronaLogo from './images/image.png';
-
 import { Cards, CountryPicker, Chart } from './components';
 import { fetchData } from './api/';
+import styles from './App.module.css';
+import CoronaLogo from './images/image.png';
 
 class App extends React.Component {
   state = {
@@ -31,14 +28,10 @@ class App extends React.Component {
 
     return (
       <div className={styles.container}>
-        <span className={styles.link} onClick={() => this.handleCountryChange('')}><img className={styles.image} src={CoronaLogo} alt="logo" /></span>
+        <img className={styles.image} src={CoronaLogo} alt="COVID-19" />
         <Cards data={data} />
-        <CountryPicker country={country} handleCountryChange={this.handleCountryChange} />
-        { 
-          window.innerWidth > 500 
-            ? <Chart data={data} country={country} /> 
-            : <Typography align="center" variant="h5">Rotate your device and reload the page to see the chart</Typography>
-        }
+        <CountryPicker handleCountryChange={this.handleCountryChange} />
+        <Chart data={data} country={country} /> 
       </div>
     );
   }

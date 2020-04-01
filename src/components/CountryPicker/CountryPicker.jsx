@@ -6,7 +6,7 @@ import { countries } from '../../api';
 
 import styles from './CountryPicker.module.css';
 
-const Countries = ({ handleCountryChange, country }) => {
+const Countries = ({ handleCountryChange }) => {
   const [fetchedCountries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -19,9 +19,9 @@ const Countries = ({ handleCountryChange, country }) => {
 
   return (
     <FormControl className={styles.formControl}>
-      <NativeSelect value={country} defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
+      <NativeSelect defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
         <option value="">Global</option>
-        {fetchedCountries.map(({ name }) => <option value={name}>{name}</option>)}
+        {fetchedCountries.map(({ name }) => <option key={name} value={name}>{name}</option>)}
       </NativeSelect>
     </FormControl>
   );
