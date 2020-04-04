@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Line, Bar } from 'react-chartjs-2';
 
-import styles from './Chart.module.css';
-
 import { fetchDailyData } from '../../api';
 
-const Chart = ({ data, country }) => {
+import styles from './Chart.module.css';
+
+const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
   const [dailyData, setDailyData] = useState({});
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Chart = ({ data, country }) => {
   }, []);
 
   const barChart = (
-    data.confirmed ? (
+    confirmed ? (
       <Bar
         data={{
           labels: ['Infected', 'Recovered', 'Deaths'],
@@ -27,7 +27,7 @@ const Chart = ({ data, country }) => {
             {
               label: 'People',
               backgroundColor: ['rgba(0, 0, 255, 0.5)', 'rgba(0, 255, 0, 0.5)', 'rgba(255, 0, 0, 0.5)'],
-              data: [data.confirmed, data.recovered, data.deaths],
+              data: [confirmed.value, recovered.value, deaths.value],
             },
           ],
         }}
@@ -45,12 +45,12 @@ const Chart = ({ data, country }) => {
         data={{
           labels: dailyData.map(({ date }) => date),
           datasets: [{
-            data: dailyData.map(({ confirmed }) => confirmed),
+            data: dailyData.map((data) => data.confirmed),
             label: 'Infected',
             borderColor: '#3333ff',
             fill: true,
           }, {
-            data: dailyData.map(({ deaths }) => deaths),
+            data: dailyData.map((data) => data.deaths),
             label: 'Deaths',
             borderColor: 'red',
             backgroundColor: 'rgba(255, 0, 0, 0.5)',

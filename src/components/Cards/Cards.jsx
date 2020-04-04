@@ -5,8 +5,8 @@ import cx from 'classnames';
 
 import styles from './Cards.module.css';
 
-const Info = ({ data }) => {
-  if (!data.confirmed) {
+const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
+  if (!confirmed) {
     return 'Loading...';
   }
 
@@ -19,10 +19,10 @@ const Info = ({ data }) => {
               Infected
             </Typography>
             <Typography variant="h5" component="h2">
-              <CountUp start={0} end={data.confirmed} duration={2.75} separator="," />
+              <CountUp start={0} end={confirmed.value} duration={2.75} separator="," />
             </Typography>
             <Typography color="textSecondary">
-              {new Date(data.lastUpdate).toDateString()}
+              {new Date(lastUpdate).toDateString()}
             </Typography>
             <Typography variant="body2" component="p">
               Number of active cases of COVID-19.
@@ -35,10 +35,10 @@ const Info = ({ data }) => {
               Recovered
             </Typography>
             <Typography variant="h5" component="h2">
-              <CountUp start={0} end={data.recovered} duration={2.75} separator="," />
+              <CountUp start={0} end={recovered.value} duration={2.75} separator="," />
             </Typography>
             <Typography color="textSecondary">
-              {new Date(data.lastUpdate).toDateString()}
+              {new Date(lastUpdate).toDateString()}
             </Typography>
             <Typography variant="body2" component="p">
               Number of recoveries from COVID-19.
@@ -51,10 +51,10 @@ const Info = ({ data }) => {
               Deaths
             </Typography>
             <Typography variant="h5" component="h2">
-              <CountUp start={0} end={data.deaths} duration={2.75} separator="," />
+              <CountUp start={0} end={deaths.value} duration={2.75} separator="," />
             </Typography>
             <Typography color="textSecondary">
-              {new Date(data.lastUpdate).toDateString()}
+              {new Date(lastUpdate).toDateString()}
             </Typography>
             <Typography variant="body2" component="p">
               Number of deaths caused by COVID-19.
