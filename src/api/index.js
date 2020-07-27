@@ -37,3 +37,13 @@ export const fetchCountries = async () => {
     return error;
   }
 };
+
+export const fetchStates = async (country) => {
+  try {
+    const { data } = await axios.get(`${url}/countries/${country.country}/confirmed`);
+    return data.map((stateData) => ({ provinceState: stateData.provinceState, confirmed: stateData.confirmed, active: stateData.active, recovered: stateData.recovered, deaths:stateData.deaths}));
+  } catch (error) {
+    return error;
+  }
+
+}
