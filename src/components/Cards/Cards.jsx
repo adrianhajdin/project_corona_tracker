@@ -1,13 +1,14 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import CardComponent from './Card/Card';
 
+import CardComponent from './Card/Card';
 import styles from './Cards.module.css';
 
 const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   if (!confirmed) {
     return 'Loading...';
   }
+
   return (
     <div className={styles.container}>
       <Grid container spacing={3} justify="center">
@@ -36,4 +37,5 @@ const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
     </div>
   );
 };
+
 export default Info;
