@@ -5,14 +5,28 @@
   margin: 50px 0;
 }
 
-.infected {
-  border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+.box{
+  margin-top: 20px;
+  border: 0.1px solid rgb(154, 152, 152);
+  padding:20px 5px;
+  background-color: #ffffff;
+  box-shadow: 10px 10px 5px #aaaaaa;
 }
-
+.infected{
+  border-bottom: 10px solid rgb(0, 0, 255,0.5);
+}
 .recovered{
-  border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+  border-bottom: 10px solid rgb(0, 255, 0,0.5);
 }
-
 .deaths{
-  border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+  border-bottom: 10px solid rgb(255, 0, 0,0.5);
+}
+.card-title{
+  font-size: 22PX;
+  color: chocolate;
+}
+.cards{
+  font-size: 19px;
+  font-style: italic;
+  color: #aaaaaa;
 }
