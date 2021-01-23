@@ -33,7 +33,13 @@ export const fetchDailyData = async () => {
     try {
       const { data } = await axios.get('https://api.covidtracking.com/v1/us/daily.json');
   
-      return data.map(({ positive, death, dateChecked }) => ({ confirmed: positive, deaths: death, date: dateChecked }));
+      return data
+        .map(({ positive, death, dateChecked }) => ({
+          confirmed: positive,
+          deaths: death,
+          date: dateChecked
+        }))
+        .reverse();
     } catch (error) {
       return error;
     }
