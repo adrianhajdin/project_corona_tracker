@@ -1,5 +1,7 @@
 body {
-  background-color: rgb(250, 250,250);
+  background-image: url("./bg1.jpg");
+  opacity: inherit;
+  background-size: cover;
 }
 
 .container {
