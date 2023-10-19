@@ -21,3 +21,16 @@ API used: https://covid19.mathdro.id/api
 
 Setup:
 - run ```npm i && npm start```
+
+## How to run this app using Docker
+
+- Clone the repository 
+
+```sh
+git clone https://github.com/adrianhajdin/project_corona_tracker.git
+
+cd project_corona_tracker
+
+docker build -t <image_name> .
+
+docker run -d -it --name <container_name> <image_name>
