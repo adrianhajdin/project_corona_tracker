@@ -1,23 +1,36 @@
 # COVID-19 Tracker
 
-### [Live Site](https://covid19statswebsite.netlify.com/)
+### [Live Site](https://gleaming-buttercream-1dc6e5.netlify.app)
 
 ![COVID-19 Tracker](https://i.ibb.co/X87BqVY/Screenshot-2020-04-13-at-10-14-58.png)
 
-### [🌟 Become a top 1% Next.js 13 developer in only one course](https://jsmastery.pro/next13)
-### [🚀 Land your dream programming job in 6 months](https://jsmastery.pro/masterclass)
+# 🦠 Covid-19 Tracker
 
-## Stay up to date with new projects
-New major projects coming soon, subscribe to the mailing list to stay up to date https://resource.jsmasterypro.com/newsletter
+A React-based web app that shows live Covid-19 cases, recoveries, and deaths using public APIs.
 
-## Introduction
-This is a code repository for the corresponding video tutorial. 
+## 🚀 Live Demo
+👉 [Visit Now](https://your-new-netlify-url.netlify.app)
 
-In this video, we will create a full COVID-19 Tracker. We're going to use React, Charts.JS and Material UI.
+## 🛠️ Tech Stack
+- React.js
+- Chart.js or Recharts
+- Axios / Fetch
+- CSS / Bootstrap / Tailwind
 
-By the end of this video, you will have a strong understanding of React's workflow and the use of hooks.
+## 🐞 Fixed Issues
+- API not loading for India ✅
+- Deaths count not updating ✅
+- Live time display issue ✅
 
-API used: https://covid19.mathdro.id/api
+## 📦 Installation
+```bash
+git clone https://github.com/your-username/covid-tracker.git
+cd covid-tracker
+npm install
+npm start
+
+
+API used: https://disease.sh/v3/covid-19/countries
 
 Setup:
 - run ```npm i && npm start```
